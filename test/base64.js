@@ -1,45 +1,11 @@
 
+var bind = require('bind');
 var expect = require('expect');
 var base64 = require('base64');
-var seed = require('seed-random');
-var bind = require('bind');
-
-var rand = seed('base64');
-
-var btoa = base64.btoa;
 var atob = base64.atob;
-var poly = base64.poly;
-
-function decodeEq(input) {
-  var a = poly.decode(input);
-  var b = base64.decode(input);
-  return a === b;
-}
-
-function encodeEq(input) {
-  var a = poly.encode(input);
-  var b = base64.encode(input);
-  return a === b;
-}
-
-function rstr(len) {
-  var str = "";
-  for (var i = 0; i < len; ++i) {
-    str += String.fromCharCode(Math.floor((rand() * (126-34))+34));
-  }
-  return str;
-}
+var btoa = base64.btoa;
 
 describe('b64', function() {
-  it('poly fuzz is the same', function() {
-    for(var i = 0; i < 50; ++i) {
-      var str = rstr(10);
-      expect(encodeEq(str)).to.be(true);
-      str = rstr(10);
-      expect(decodeEq(btoa(str))).to.be(true);
-    }
-  });
-
   it('can encode ASCII input', function() {
     expect(btoa('')).to.eql('');
     expect(btoa('f')).to.eql('Zg==');

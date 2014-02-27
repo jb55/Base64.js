@@ -8,8 +8,7 @@
     "component/bind": "*"
   },
   "development": {
-    "jb55/expect.js": "*",
-    "ForbesLindesay/seed-random": "*"
+    "jb55/expect.js": "*"
   },
   "license": "MIT",
   "main": "index.js",
