@@ -3,6 +3,8 @@
 
   base64 that mimicks window.{atob,btoa}
 
+  [![browser support](https://ci.testling.com/jb55/base64.png)](https://ci.testling.com/jb55/base64)
+
 ## Installation
 
   Install with [component(1)](http://component.io):
