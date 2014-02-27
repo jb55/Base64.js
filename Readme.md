@@ -17,7 +17,7 @@
 var base64 = require('base64');
 
 var encoded = base64.encode("\x01\x02\x03")
-base64.decode(decoded)
+base64.decode(encoded)
 ```
 
 ## License
