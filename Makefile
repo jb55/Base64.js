@@ -1,19 +1,15 @@
 .PHONY: bytes clean setup test
 
-bin = node_modules/.bin
+build: components index.js
+	@component build --dev
 
-base64.min.js: base64.js
-	@$(bin)/uglifyjs $< --compress --mangle > $@
-
-bytes: base64.min.js
-	@gzip --best --stdout $< | wc -c | tr -d ' '
+components: component.json
+	@component install --dev
 
 clean:
-	@rm -rf node_modules
-	@git checkout -- *.min.js
+	rm -fr build components template.js
 
-setup:
-	@npm install
+test: build
+	@component test phantom
 
-test:
-	@$(bin)/mocha test --compilers coffee:coffee-script
+.PHONY: clean test

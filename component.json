@@ -1,0 +1,19 @@
+{
+  "name": "base64",
+  "repo": "jb55/base64",
+  "description": "base64 that mimicks window.{atob,btoa}",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "component/bind": "*"
+  },
+  "development": {
+    "jb55/expect.js": "*",
+    "ForbesLindesay/seed-random": "*"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}
